@@ -8,77 +8,108 @@
         body {
             margin: 0;
             font-family: "Inter", sans-serif;
-            background-color: #f7f9fa;
-            color: #1f2a44;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px;
+            background-color: #f4f5f0;
+            color: #2a2f36;
         }
 
-        header {
-            max-width: 700px;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, #dce7ef 0%, #f4f5f0 100%);
+            padding: 80px 20px 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Simple whale line art */
+        .whale {
+            width: 120px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-bottom: 4px solid #2a2f36;
+            border-radius: 0 0 60px 60px;
+            position: relative;
+        }
+
+        .whale::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-right: 4px solid #2a2f36;
+            border-bottom: 4px solid #2a2f36;
+            transform: rotate(45deg);
+            border-radius: 4px;
         }
 
         h1 {
             font-size: 3rem;
+            margin: 10px 0;
             letter-spacing: -1px;
-            margin-bottom: 10px;
         }
 
         .tagline {
             font-size: 1.2rem;
-            color: #4a5a75;
-            margin-bottom: 40px;
+            color: #4a5562;
         }
 
-        .divider {
-            width: 60px;
-            height: 3px;
-            background-color: #1f2a44;
-            margin: 30px auto;
-            border-radius: 2px;
+        /* Wave divider */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23f4f5f0" d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,181.3C960,192,1056,160,1152,149.3C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
         }
 
-        .section {
-            max-width: 650px;
-            margin-bottom: 50px;
+        /* Content */
+        .content {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+            line-height: 1.7;
+            color: #3a3f45;
         }
 
         .coming-soon {
             font-size: 1.4rem;
-            font-weight: 500;
-            color: #1f2a44;
+            margin-top: 40px;
+            font-weight: 600;
         }
 
         footer {
-            margin-top: 60px;
+            text-align: center;
+            padding: 40px 0;
+            color: #7a8087;
             font-size: 0.9rem;
-            color: #7b8a9b;
         }
     </style>
 </head>
 <body>
 
-<header>
+<section class="hero">
+    <div class="whale"></div>
     <h1>The Fat Whale</h1>
-    <p class="tagline">A modern coastal coffee house — coming to North Wales</p>
-</header>
-
-<div class="divider"></div>
-
-<section class="section">
-    <p>
-        Inspired by the rugged coastline and calm tides of North Wales,  
-        <strong>The Fat Whale</strong> is a minimalist coffee space built around  
-        simple pleasures: good coffee, warm light, and a sense of place.
-    </p>
+    <p class="tagline">Coastal coffee. Modern calm. North Wales soul.</p>
+    <div class="wave"></div>
 </section>
 
-<section class="section">
-    <p class="coming-soon">Opening soon.  
-    <br>Follow the journey.</p>
+<section class="content">
+    <p>
+        A modern coastal coffee house inspired by the quiet tides, soft sands,  
+        and rugged beauty of the Welsh shoreline.  
+        The Fat Whale blends minimalist design with warm, earthy textures —  
+        a place to slow down, sip something good, and feel at home.
+    </p>
+
+    <p class="coming-soon">
+        Brewing soon.  
+        Follow the journey.
+    </p>
 </section>
 
 <footer>
