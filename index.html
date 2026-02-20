@@ -3,54 +3,236 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>The Fat Whale — Coffee, North Wales</title>
+	<title>The Fat Whale — Coffee, North Wales (Coming Soon)</title>
 	<meta name="description" content="The Fat Whale — minimalist coffee shop opening soon in North Wales." />
-	<link rel="stylesheet" href="styles.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+	<meta name="theme-color" content="#fffaf6">
+	<style>
+		:root{
+			--bg-1:#fffaf6;
+			--bg-2:#f7f5f3;
+			--ink:#0f1724;
+			--muted:#6b7280;
+			--accent:#c07a4b;
+			--glass: rgba(255,255,255,0.6);
+			--radius:18px;
+			--maxw:980px;
+			font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+		}
+		*{box-sizing:border-box}
+		html,body{height:100%}
+		body{
+			margin:0;
+			background: radial-gradient(1200px 600px at 10% 10%, rgba(192,122,75,0.06), transparent),
+					 linear-gradient(180deg,var(--bg-1),var(--bg-2));
+			color:var(--ink);
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			padding:48px 20px;
+			-webkit-font-smoothing:antialiased;
+			-moz-osx-font-smoothing:grayscale;
+		}
+		.container{
+			width:100%;
+			max-width:var(--maxw);
+			display:grid;
+			gap:28px;
+		}
+
+		.header{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:16px;
+		}
+		.logo{
+			display:flex;
+			align-items:center;
+			gap:12px;
+			text-decoration:none;
+			color:var(--ink);
+			font-weight:700;
+			font-size:1.05rem;
+		}
+		.logo svg{display:block; color:var(--accent)}
+		/* Minimal top "nav" removed (no resume tab) */
+
+		.hero{
+			background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+			border-radius:var(--radius);
+			padding:48px;
+			box-shadow: 0 20px 50px rgba(16,24,40,0.08);
+			display:grid;
+			grid-template-columns: 1fr;
+			gap:22px;
+			align-items:center;
+			backdrop-filter: blur(6px);
+		}
+		.headline{
+			margin:0;
+			font-size:clamp(1.6rem, 3.2vw, 2.6rem);
+			letter-spacing:-0.6px;
+		}
+		.sub{
+			margin:0;
+			color:var(--muted);
+			font-size:1rem;
+		}
+
+		.card-row{
+			display:flex;
+			flex-direction:column;
+			gap:14px;
+		}
+		.subscribe{
+			display:flex;
+			gap:12px;
+			align-items:center;
+			width:100%;
+			max-width:640px;
+		}
+		.input{
+			flex:1;
+			padding:14px 16px;
+			border-radius:12px;
+			border:1px solid rgba(15,23,36,0.06);
+			background:white;
+			font-size:1rem;
+			outline:none;
+			box-shadow: 0 6px 20px rgba(16,24,40,0.02);
+		}
+		.input:focus{box-shadow:0 8px 26px rgba(192,122,75,0.12); border-color: rgba(192,122,75,0.18) }
+		.cta{
+			background:linear-gradient(180deg,var(--accent), #b2653e);
+			color:white;
+			padding:12px 16px;
+			border-radius:12px;
+			border:0;
+			font-weight:700;
+			cursor:pointer;
+			letter-spacing:0.3px;
+		}
+		.cta:active{transform:translateY(1px)}
+
+		.meta{
+			color:var(--muted);
+			font-size:0.95rem;
+			display:flex;
+			gap:12px;
+			align-items:center;
+		}
+
+		.socials{display:flex; gap:8px}
+		.social{
+			width:40px;height:40px;border-radius:10px;
+			display:inline-grid;place-items:center;
+			background:transparent;border:1px solid rgba(15,23,36,0.04);
+			color:var(--ink);text-decoration:none;font-weight:600;
+		}
+
+		.footer{
+			color:var(--muted);
+			font-size:0.9rem;
+		}
+
+		.toast{
+			position:fixed;left:50%;transform:translateX(-50%);
+			bottom:32px;
+			background:#111827;color:white;padding:12px 18px;border-radius:10px;
+			box-shadow:0 10px 30px rgba(2,6,23,0.5);opacity:0;pointer-events:none;
+			transition:opacity .28s ease, bottom .28s ease;
+		}
+		.toast.show{opacity:1;pointer-events:auto;bottom:48px}
+
+		@media(min-width:900px){
+			.hero{grid-template-columns:1fr 420px; align-items:center}
+			.card-row{align-items:flex-end}
+		}
+	</style>
 </head>
 <body>
-	<main class="wrap">
-		<header class="site-header" role="banner">
+	<main class="container" role="main">
+		<header class="header" role="banner">
 			<a class="logo" href="#" aria-label="The Fat Whale">
-				<!-- simple whale mark -->
-				<svg width="56" height="40" viewBox="0 0 56 40" aria-hidden="true" focusable="false">
+				<!-- filepath: c:\Users\reesh\developerFolio\index.html -->
+				<svg width="48" height="36" viewBox="0 0 56 40" aria-hidden="true" focusable="false">
 					<path d="M2 24c0-8 9-14 22-14s22 6 22 14c0 6-6 10-14 10H18C8 34 2 30 2 24z" fill="currentColor"/>
 					<circle cx="40" cy="18" r="1.6" fill="white"/>
 				</svg>
-				<span class="brand">The Fat Whale</span>
+				<span>The Fat Whale</span>
 			</a>
+			<!-- intentionally minimal header: no extra tabs -->
 		</header>
 
-		<section class="hero" role="region" aria-labelledby="hero-title">
-			<h1 id="hero-title">Coffee with a view — opening soon</h1>
-			<p class="tagline">A calm, modern coffee shop coming to North Wales. Soft roasts, sweet pastries, warm welcomes.</p>
+		<section class="hero" aria-labelledby="title">
+			<div>
+				<h1 id="title" class="headline">Warm roasts. Quiet mornings. Opening soon in North Wales.</h1>
+				<p class="sub">A minimalist neighbourhood coffee bar serving thoughtful coffee and fresh pastries. Join the waiting list for our opening and soft-launch tastings.</p>
+			</div>
 
-			<div class="card">
-				<p class="opening">We’re not open yet. Sign up for updates about our opening date and early tastings.</p>
-
-				<form class="subscribe" action="mailto:hello@thefatwhale.coffee" method="get" enctype="text/plain" aria-label="Subscribe for opening updates">
-					<label for="email" class="visually-hidden">Email</label>
-					<input id="email" name="email" type="email" placeholder="your@email.com" required />
-					<button type="submit" class="btn">Notify me</button>
+			<div class="card-row" aria-hidden="false">
+				<form id="subscribeForm" class="subscribe" novalidate>
+					<label for="email" class="visually-hidden">Email address</label>
+					<input id="email" class="input" name="email" type="email" placeholder="you@address.com" autocomplete="email" required>
+					<button type="submit" class="cta">Join waiting list</button>
 				</form>
 
-				<p class="info">Location: North Wales • Follow for updates</p>
-
-				<nav class="social" aria-label="Social links">
-					<a href="#" aria-label="Instagram" class="social-link">IG</a>
-					<a href="#" aria-label="Facebook" class="social-link">FB</a>
-					<a href="#" aria-label="Twitter" class="social-link">X</a>
-				</nav>
+				<div class="meta" aria-hidden="true">
+					<span>Location: North Wales</span>
+					<div style="flex:1"></div>
+					<nav class="socials" aria-label="Social links">
+						<a class="social" href="#" aria-label="Instagram">IG</a>
+						<a class="social" href="#" aria-label="Facebook">FB</a>
+						<a class="social" href="#" aria-label="X">X</a>
+					</nav>
+				</div>
 			</div>
 		</section>
 
-		<footer class="site-footer" role="contentinfo">
+		<footer class="footer" role="contentinfo">
 			<p>© <span id="year"></span> The Fat Whale — Not open yet</p>
 		</footer>
 	</main>
 
+	<div id="toast" class="toast" role="status" aria-live="polite">Thanks — you're on the list. We'll be in touch.</div>
+
 	<script>
-		// small progressive enhancement
-		document.getElementById('year').textContent = new Date().getFullYear();
+		// progressive enhancement: handle subscribe UI and year
+		(function(){
+			document.getElementById('year').textContent = new Date().getFullYear();
+
+			var form = document.getElementById('subscribeForm');
+			var input = document.getElementById('email');
+			var toast = document.getElementById('toast');
+			function showToast(){
+				toast.classList.add('show');
+				setTimeout(function(){ toast.classList.remove('show'); }, 3500);
+			}
+			form.addEventListener('submit', function(e){
+				e.preventDefault();
+				var email = input.value.trim();
+				if(!email || !/^\S+@\S+\.\S+$/.test(email)){
+					input.focus();
+					return;
+				}
+				// Optionally open default mail client (comment out if undesired)
+				try{
+					var mailto = 'mailto:hello@thefatwhale.coffee?subject=Waiting list&body=' + encodeURIComponent('Please add me to the waiting list:\n\n' + email);
+					window.location.href = mailto;
+				}catch(err){}
+				input.value = '';
+				showToast();
+			});
+		})();
 	</script>
+
+	<!-- accessibility helper -->
+	<style>
+		.visually-hidden{
+			position:absolute!important;height:1px;width:1px;overflow:hidden;
+			clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px;
+		}
+	</style>
 </body>
 </html>
