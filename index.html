@@ -1,120 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Fat Whale</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background-color: #f4f5f0;
-            color: #2a2f36;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to bottom, #dce7ef 0%, #f4f5f0 100%);
-            padding: 80px 20px 120px;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Simple whale line art */
-        .whale {
-            width: 120px;
-            height: 60px;
-            margin: 0 auto 20px;
-            border-bottom: 4px solid #2a2f36;
-            border-radius: 0 0 60px 60px;
-            position: relative;
-        }
-
-        .whale::after {
-            content: "";
-            position: absolute;
-            right: -10px;
-            top: 10px;
-            width: 20px;
-            height: 20px;
-            border-right: 4px solid #2a2f36;
-            border-bottom: 4px solid #2a2f36;
-            transform: rotate(45deg);
-            border-radius: 4px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin: 10px 0;
-            letter-spacing: -1px;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: #4a5562;
-        }
-
-        /* Wave divider */
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23f4f5f0" d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,181.3C960,192,1056,160,1152,149.3C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-        }
-
-        /* Content */
-        .content {
-            max-width: 700px;
-            margin: 60px auto;
-            padding: 0 20px;
-            text-align: center;
-            line-height: 1.7;
-            color: #3a3f45;
-        }
-
-        .coming-soon {
-            font-size: 1.4rem;
-            margin-top: 40px;
-            font-weight: 600;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #7a8087;
-            font-size: 0.9rem;
-        }
-    </style>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>The Fat Whale — Coffee, North Wales</title>
+	<meta name="description" content="The Fat Whale — minimalist coffee shop opening soon in North Wales." />
+	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+	<main class="wrap">
+		<header class="site-header" role="banner">
+			<a class="logo" href="#" aria-label="The Fat Whale">
+				<!-- simple whale mark -->
+				<svg width="56" height="40" viewBox="0 0 56 40" aria-hidden="true" focusable="false">
+					<path d="M2 24c0-8 9-14 22-14s22 6 22 14c0 6-6 10-14 10H18C8 34 2 30 2 24z" fill="currentColor"/>
+					<circle cx="40" cy="18" r="1.6" fill="white"/>
+				</svg>
+				<span class="brand">The Fat Whale</span>
+			</a>
+		</header>
 
-<section class="hero">
-    <div class="whale"></div>
-    <h1>The Fat Whale</h1>
-    <p class="tagline">Coastal coffee. Modern calm. North Wales soul.</p>
-    <div class="wave"></div>
-</section>
+		<section class="hero" role="region" aria-labelledby="hero-title">
+			<h1 id="hero-title">Coffee with a view — opening soon</h1>
+			<p class="tagline">A calm, modern coffee shop coming to North Wales. Soft roasts, sweet pastries, warm welcomes.</p>
 
-<section class="content">
-    <p>
-        A modern coastal coffee house inspired by the quiet tides, soft sands,  
-        and rugged beauty of the Welsh shoreline.  
-        The Fat Whale blends minimalist design with warm, earthy textures —  
-        a place to slow down, sip something good, and feel at home.
-    </p>
+			<div class="card">
+				<p class="opening">We’re not open yet. Sign up for updates about our opening date and early tastings.</p>
 
-    <p class="coming-soon">
-        Brewing soon.  
-        Follow the journey.
-    </p>
-</section>
+				<form class="subscribe" action="mailto:hello@thefatwhale.coffee" method="get" enctype="text/plain" aria-label="Subscribe for opening updates">
+					<label for="email" class="visually-hidden">Email</label>
+					<input id="email" name="email" type="email" placeholder="your@email.com" required />
+					<button type="submit" class="btn">Notify me</button>
+				</form>
 
-<footer>
-    © The Fat Whale
-</footer>
+				<p class="info">Location: North Wales • Follow for updates</p>
 
+				<nav class="social" aria-label="Social links">
+					<a href="#" aria-label="Instagram" class="social-link">IG</a>
+					<a href="#" aria-label="Facebook" class="social-link">FB</a>
+					<a href="#" aria-label="Twitter" class="social-link">X</a>
+				</nav>
+			</div>
+		</section>
+
+		<footer class="site-footer" role="contentinfo">
+			<p>© <span id="year"></span> The Fat Whale — Not open yet</p>
+		</footer>
+	</main>
+
+	<script>
+		// small progressive enhancement
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
 </body>
 </html>
